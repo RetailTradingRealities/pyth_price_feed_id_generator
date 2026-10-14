@@ -3,8 +3,7 @@
 Generates a Rust `PYTH_ALLOWED_FEEDS` table (mint pubkey → 32-byte Pyth price feed ID) by
 querying the [Pyth Hermes API](https://hermes.pyth.network) for each token's price feed ID.
 
-This is useful for Solana programs that validate Pyth Push oracle updates against an
-allow-list of `(Pubkey, [u8; 32])` pairs.
+This is useful for Solana programs that validate Pyth Push oracle updates against anallow-list of `(Pubkey, [u8; 32])` pairs.
 
 ## Usage
 
