@@ -1,7 +1,7 @@
 {
   "name": "pyth-feed-id-generator",
   "version": "1.0.0",
-  "description": "Generates a Rust PYTH_ALLOWED_FEEDS table by querying the Pyth Hermes API for price feed IDs",
+  "description": "Generates a Rust PYTH_ALLOWED_FEEDS table (mint, Pyth price feed ID, Solana push-feed price account) from the Pyth Hermes API",
   "main": "generate_feeds.mjs",
   "type": "module",
   "scripts": {
@@ -17,5 +17,8 @@
     "solana",
     "price-feed",
     "oracle"
-  ]
+  ],
+  "dependencies": {
+    "@solana/kit": "^8.4.0"
+  }
 }

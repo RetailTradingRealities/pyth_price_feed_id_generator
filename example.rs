@@ -2,9 +2,10 @@
 use anchor_lang::prelude::*;
 
 //This is the pasted output from generate_feeds.mjs
-//This file contains the allowed Pyth feeds and their corresponding IDs.
-pub const PYTH_ALLOWED_FEEDS: &[(Pubkey, [u8; 32])] = &[
-    // BONK/USD/USD
+//This file contains the allowed Pyth feeds, their feed IDs and their Solana price accounts.
+// (token mint, Pyth price feed ID, Pyth push-feed price account for shard 0)
+pub const PYTH_ALLOWED_FEEDS: &[(Pubkey, [u8; 32], Pubkey)] = &[
+    // BONK/USD
     (
         pubkey!("DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263"),
         [
@@ -13,8 +14,9 @@ pub const PYTH_ALLOWED_FEEDS: &[(Pubkey, [u8; 32])] = &[
             0xb9, 0xd8, 0x4e, 0x9a, 0xd0, 0x04, 0xb4, 0xd2,
             0x02, 0x5a, 0xd6, 0xf5, 0x29, 0x31, 0x44, 0x19,
         ],
+        pubkey!("DBE3N8uNjhKPRHfANdwGvCZghWXyLPdqdSbEW2XFwBiX"),
     ),
-    // MEW/USD/USD
+    // MEW/USD
     (
         pubkey!("MEW1gQWJ3nEXg2qgERiKu7FAFj79PHvQVREQUzScPP5"),
         [
@@ -23,8 +25,9 @@ pub const PYTH_ALLOWED_FEEDS: &[(Pubkey, [u8; 32])] = &[
             0xa0, 0x18, 0x61, 0x97, 0x72, 0xdd, 0xce, 0x41,
             0xef, 0xcc, 0x36, 0xa6, 0x44, 0x8f, 0x5d, 0x5d,
         ],
+        pubkey!("EF6U755BdHMXim8RBw6XSC6Yk6XaouTKpwcBZ7QkcanB"),
     ),
-    // JUP/USD/USD
+    // JUP/USD
     (
         pubkey!("JUPyiwrYJFskUPiHa7hkeR8VUtAeFoSYbKedZNsDvCN"),
         [
@@ -33,8 +36,9 @@ pub const PYTH_ALLOWED_FEEDS: &[(Pubkey, [u8; 32])] = &[
             0xed, 0x50, 0x42, 0xfa, 0x6f, 0x82, 0x30, 0x1d,
             0x0e, 0x48, 0xbb, 0x52, 0xbe, 0x83, 0x09, 0x96,
         ],
+        pubkey!("7dbob1psH1iZBS7qPsm3Kwbf5DzSXK8Jyg31CTgTnxH5"),
     ),
-    // PYTH/USD/USD
+    // PYTH/USD
     (
         pubkey!("HZ1JovNiVvGrGNiiYvEozEVgZ58xaU3RKwX8eACQBCt3"),
         [
@@ -43,8 +47,9 @@ pub const PYTH_ALLOWED_FEEDS: &[(Pubkey, [u8; 32])] = &[
             0x2d, 0x0e, 0xa3, 0x09, 0x8a, 0x1e, 0x5d, 0xf1,
             0xc3, 0x92, 0x2d, 0x06, 0x71, 0x95, 0x79, 0xff,
         ],
+        pubkey!("8vjchtMuJNY4oFQdTi8yCe6mhCaNBFaUbktT482TpLPS"),
     ),
-    // WIF/USD/USD
+    // WIF/USD
     (
         pubkey!("EKpQGSJtjMFqKZ9KQanSqYXRcF8fBopzLHYxdM65zcjm"),
         [
@@ -53,8 +58,9 @@ pub const PYTH_ALLOWED_FEEDS: &[(Pubkey, [u8; 32])] = &[
             0x10, 0x01, 0x0a, 0x72, 0x4c, 0x22, 0x17, 0xc6,
             0xee, 0x41, 0xb5, 0x4c, 0xd4, 0xcc, 0x61, 0xfc,
         ],
+        pubkey!("6B23K3tkb51vLZA14jcEQVCA1pfHptzEHFA93V5dYwbT"),
     ),
-    // MNDE/USD/USD
+    // MNDE/USD
     (
         pubkey!("MNDEFzGvMt87ueuHvVU9VcTqsAP5b3fTGPsHuuPA5ey"),
         [
@@ -63,8 +69,9 @@ pub const PYTH_ALLOWED_FEEDS: &[(Pubkey, [u8; 32])] = &[
             0xbc, 0x56, 0xca, 0xa8, 0x66, 0x7d, 0x32, 0x24,
             0x97, 0x1e, 0xbe, 0x3c, 0x06, 0x23, 0x29, 0x2a,
         ],
+        pubkey!("GHKcxocPyzSjy7tWApQjKRkDNuVXd4Kk624zhuaR7xhC"),
     ),
-    // TRUMP/USD/USD
+    // TRUMP/USD
     (
         pubkey!("6p6xgHyF7AeE6TZkSmFsko444wqoP15icUSqi2jfGiPN"),
         [
@@ -73,8 +80,9 @@ pub const PYTH_ALLOWED_FEEDS: &[(Pubkey, [u8; 32])] = &[
             0xa7, 0xe4, 0xfa, 0x81, 0x48, 0x33, 0x9a, 0xa0,
             0xd3, 0xd5, 0x29, 0x64, 0x05, 0xbe, 0x4b, 0x1a,
         ],
+        pubkey!("9vNb2tQoZ8bB4vzMbQLWViGwNaDJVtct13AGgno1wazp"),
     ),
-    // FARTCOIN/USD/USD
+    // FARTCOIN/USD
     (
         pubkey!("9BB6NFEcjBCtnNLFko2FqVQBq8HHM13kCyYcdQbgpump"),
         [
@@ -83,8 +91,9 @@ pub const PYTH_ALLOWED_FEEDS: &[(Pubkey, [u8; 32])] = &[
             0xa5, 0x2d, 0xa4, 0x16, 0x9d, 0x7a, 0xcc, 0x14,
             0x7b, 0x9d, 0xa6, 0x92, 0xe6, 0x95, 0x36, 0x08,
         ],
+        pubkey!("2t8eUbYKjidMs3uSeYM9jXM9uudYZwGkSeTB4TKjmvnC"),
     ),
-    // PUMP/USD/USD
+    // PUMP/USD
     (
         pubkey!("pumpCmXqMfrsAkQ5r49WcJnRayYRqmXz6ae8H7H9Dfn"),
         [
@@ -93,8 +102,9 @@ pub const PYTH_ALLOWED_FEEDS: &[(Pubkey, [u8; 32])] = &[
             0xa7, 0x22, 0xf0, 0x70, 0xd2, 0xc1, 0x75, 0x96,
             0xff, 0x7b, 0xb6, 0x09, 0xb8, 0xd5, 0xc3, 0xb9,
         ],
+        pubkey!("HMm3GPbdnqGwbkTnUUqCFsH8AMHDdEC3Lg8gcPD3HJSH"),
     ),
-    // RENDER/USD/USD
+    // RENDER/USD
     (
         pubkey!("rndrizKT3MK1iimdxRdWabcF7Zg7AR5T4nud4EkHBof"),
         [
@@ -103,8 +113,9 @@ pub const PYTH_ALLOWED_FEEDS: &[(Pubkey, [u8; 32])] = &[
             0xb0, 0x43, 0x25, 0x73, 0x21, 0xaa, 0x54, 0x47,
             0x17, 0xc5, 0x6f, 0xa1, 0x9b, 0x49, 0xe3, 0x5d,
         ],
+        pubkey!("HAm5DZhrgrWa12heKSxocQRyJWGCtXegC77hFQ8F5QTH"),
     ),
-    // MET/USD/USD
+    // MET/USD
     (
         pubkey!("METvsvVRapdj9cFLzq4Tr43xK4tAjQfwX76z3n6mWQL"),
         [
@@ -113,8 +124,9 @@ pub const PYTH_ALLOWED_FEEDS: &[(Pubkey, [u8; 32])] = &[
             0x34, 0x9a, 0xd2, 0xbc, 0xd8, 0x50, 0x5c, 0x3d,
             0x3a, 0x9f, 0x77, 0xd8, 0x1a, 0x67, 0xa6, 0x82,
         ],
+        pubkey!("ApN7pa6MH2WmuZFXwi5PxMb4bSwRLDthbVSuWaiSMWyR"),
     ),
-    // CLOUD/USD/USD
+    // CLOUD/USD
     (
         pubkey!("CLoUDKc4Ane7HeQcPpE3YHnznRxhMimJ4MyaUqyHFzAu"),
         [
@@ -123,8 +135,9 @@ pub const PYTH_ALLOWED_FEEDS: &[(Pubkey, [u8; 32])] = &[
             0x00, 0x90, 0x01, 0xc9, 0x11, 0x32, 0x01, 0xc7,
             0x19, 0x62, 0x1d, 0x3f, 0x1a, 0xa8, 0x0a, 0x73,
         ],
+        pubkey!("9Ukgyw8sishBXmRngEJBW6MV5Y7BBL6gLykxJNBXMczn"),
     ),
-    // HYPE/USD/USD
+    // HYPE/USD
     (
         pubkey!("98sMhvDwXj1RQi5c5Mndm3vPe9cBqPrbLaufMXFNMh5g"),
         [
@@ -133,8 +146,9 @@ pub const PYTH_ALLOWED_FEEDS: &[(Pubkey, [u8; 32])] = &[
             0x32, 0xa8, 0xe6, 0x89, 0xff, 0x20, 0xfb, 0xc5,
             0x30, 0xd2, 0xa6, 0x03, 0xeb, 0x6c, 0xd9, 0x8b,
         ],
+        pubkey!("6usXZCEM4kf1KHGDTzgQLAWtDMNdzLjfAUYSwGKJm19Y"),
     ),
-    // SOL/USD/USD
+    // SOL/USD
     (
         pubkey!("So11111111111111111111111111111111111111112"),
         [
@@ -143,5 +157,6 @@ pub const PYTH_ALLOWED_FEEDS: &[(Pubkey, [u8; 32])] = &[
             0x2a, 0x0d, 0x2f, 0x8e, 0xd0, 0xc6, 0xc7, 0xbc,
             0x0f, 0x4c, 0xfa, 0xc8, 0xc2, 0x80, 0xb5, 0x6d,
         ],
+        pubkey!("7UVimffxr9ow1uXYxsr4LHAcV58mLzhmwaeKvJ1pjLiE"),
     ),
 ];
